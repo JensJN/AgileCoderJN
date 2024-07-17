@@ -28,7 +28,8 @@ install_requires=[
         "anthropic",
         "pygame",
         "numpy",
-        "tree-sitter"
+        "tree-sitter",
+        "strsimpy"
       ],
 packages=find_packages(),
 zip_safe=False)

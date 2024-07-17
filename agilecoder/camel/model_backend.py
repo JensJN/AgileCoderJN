@@ -35,7 +35,8 @@ import google.auth.transport
 import anthropic
 
 vertex_credentials = Credentials.from_service_account_info(
-    json.loads(open("../key.json", "r").read()),
+    #json.loads(open("../key.json", "r").read()),
+    json.loads(open(os.path.os.environ['API_KEY_PATH'], "r").read()),
     scopes=[
         "https://www.googleapis.com/auth/cloud-platform",
         "https://www.googleapis.com/auth/compute",
