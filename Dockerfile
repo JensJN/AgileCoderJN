@@ -1,13 +1,18 @@
 # base image
 FROM python:3
 
-# install pytest -- dev
-#RUN pip install --no-cache-dir --upgrade pytest
+# set workdir for caching
+WORKDIR /docker
+COPY ./agilecoder ./agilecoder
+COPY ./setup.py .
+#RUN pip install --no-index --upgrade -e .
+RUN pip install -e .
 
-#RUN pip install -e AgileCoder
-#RUN pip install --no-cache-dir --upgrade -e AgileCoder
-RUN pip install --no-cache-dir --upgrade AgileCoder
-RUN pip install --no-cache-dir --upgrade AgileCoder tree-sitter tree-sitter-python
+###RUN pip install -e AgileCoder
+###RUN pip install --no-cache-dir --upgrade -e AgileCoder
+#RUN pip install --no-cache-dir --upgrade AgileCoder
+
+RUN pip install --no-cache-dir --upgrade tree-sitter tree-sitter-python
 
 # This doesn't work as passing the key is tricky here / don't want to bake it in
 # REQUIRES .env to contain API key:
