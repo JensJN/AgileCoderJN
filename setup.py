@@ -14,11 +14,21 @@ entry_points={
 },
 install_requires=[
         "openai==0.28.1",
-        "tiktoken",
-        "markdown",
+        "tiktoken==0.6.0",
+        "markdown==3.5.2",
         "colorama",
-        "strsimpy==0.2.1",
-        "python-dotenv"
+        "nltk==3.8.1",
+        "flask",
+        "tenacity==8.2.3",
+        "python-dotenv",
+        "codebleu==0.7.0",
+        "google-auth",
+        "google-auth-oauthlib",
+        "google-auth-httplib2",
+        "anthropic",
+        "pygame",
+        "numpy",
+        "tree-sitter"
       ],
 packages=find_packages(),
 zip_safe=False)
