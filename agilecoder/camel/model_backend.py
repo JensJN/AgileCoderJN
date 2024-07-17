@@ -40,7 +40,7 @@ CLAUDE_3_SONNET = "claude-3-sonnet@20240229"
 CLAUDE_3_OPUS = "claude-3-opus@20240229"
 
 GCLOUD_LOCATION = "us-central1"
-GCLOUD_PROJECT_ID = "ai4code-dev"
+GCLOUD_PROJECT_ID = "sharp-terminal-429710-k4" # needs to be project ID in GCP / vertex
 
 
 def convert_claude_to_openai(claude_output):
@@ -195,7 +195,8 @@ class AI4CodeAnthropicVertex(AnthropicVertex):
     def _ensure_access_token(self) -> str:
         request = google.auth.transport.requests.Request()
         vertex_credentials = Credentials.from_service_account_info(
-            json.loads(open(os.path.join(os.getcwd(), "key.json"), "r").read()),
+            #json.loads(open(os.path.join(os.getcwd(), "key.json"), "r").read()),
+            json.loads(open(os.path.os.environ['API_KEY_PATH'], "r").read()),
             scopes=[
                 "https://www.googleapis.com/auth/cloud-platform",
                 "https://www.googleapis.com/auth/compute",
